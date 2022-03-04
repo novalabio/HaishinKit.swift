@@ -3,7 +3,7 @@ import Foundation
 import HaishinKit
 import UIKit
 
-final class PlaybackViewController: UIViewController, HKPictureInPictureController {
+final class PlaybackViewController: UIViewController, HKPictureInPicureController {
     private static let maxRetryCount: Int = 5
 
     @IBOutlet private weak var playbackButton: UIButton!

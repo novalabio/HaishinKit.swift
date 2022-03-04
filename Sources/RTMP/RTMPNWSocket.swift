@@ -70,10 +70,7 @@ final class RTMPNWSocket: RTMPSocketCompatible {
         }
         if 0 < timeout {
             let newTimeoutHandler = DispatchWorkItem { [weak self] in
-                guard let self = self, self.timeoutHandler?.isCancelled == false else {
-                    return
-                }
-                self.didTimeout()
+                self?.didTimeout()
             }
             timeoutHandler = newTimeoutHandler
             DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + .seconds(timeout), execute: newTimeoutHandler)

@@ -2,10 +2,10 @@
 import Foundation
 import UIKit
 
-private var HKPictureInPictureControllerImplKey: UInt8 = 0
+private var HKPictureInPicureControllerImplKey: UInt8 = 0
 
-/// HKPictureInPictureController protocol default implementation.
-public extension HKPictureInPictureController where Self: UIViewController {
+/// HKPictureInPicureController protocol default implementation.
+public extension HKPictureInPicureController where Self: UIViewController {
     var isPictureInPictureActive: Bool {
         impl.isPictureInPictureActive
     }
@@ -19,7 +19,7 @@ public extension HKPictureInPictureController where Self: UIViewController {
         }
     }
 
-    var pictureInPicturePosition: HKPictureInPictureControllerPosition {
+    var pictureInPicturePosition: HKPictureInPicureControllerPosition {
         get {
             impl.pictureInPicturePosition
         }
@@ -55,17 +55,17 @@ public extension HKPictureInPictureController where Self: UIViewController {
         }
     }
 
-    private var impl: HKPictureInPictureControllerImpl {
+    private var impl: HKPictureInPicureControllerImpl {
         get {
-            guard let object = objc_getAssociatedObject(self, &HKPictureInPictureControllerImplKey) as? HKPictureInPictureControllerImpl else {
-                let impl = HKPictureInPictureControllerImpl(self)
-                objc_setAssociatedObject(self, &HKPictureInPictureControllerImplKey, impl, .OBJC_ASSOCIATION_RETAIN)
+            guard let object = objc_getAssociatedObject(self, &HKPictureInPicureControllerImplKey) as? HKPictureInPicureControllerImpl else {
+                let impl = HKPictureInPicureControllerImpl(self)
+                objc_setAssociatedObject(self, &HKPictureInPicureControllerImplKey, impl, .OBJC_ASSOCIATION_RETAIN)
                 return impl
             }
             return object
         }
         set {
-            objc_setAssociatedObject(self, &HKPictureInPictureControllerImplKey, newValue, .OBJC_ASSOCIATION_RETAIN)
+            objc_setAssociatedObject(self, &HKPictureInPicureControllerImplKey, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
 

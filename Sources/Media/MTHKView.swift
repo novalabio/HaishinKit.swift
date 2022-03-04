@@ -57,8 +57,12 @@ open class MTHKView: MTKView, NetStreamRenderer {
 
     /// Attaches a view to a new NetStream object.
     open func attachStream(_ stream: NetStream?) {
-        stream?.lockQueue.async { [weak self] in
-            self?.currentStream = stream
+        if Thread.isMainThread {
+            currentStream = stream
+        } else {
+            DispatchQueue.main.async {
+                self.currentStream = stream
+            }
         }
     }
 }
